@@ -196,7 +196,7 @@ if (isset($_POST['edit'])) {
         ?>
                                 <div class="add">
                                     <p><div style="width: 10%; height: 150px; border: 2px solid black" >
-                                        <img src="<?php $product['image']; ?>" id="upload" style="height:150px; width: 100%;">
+                                        <img src="images/<?php echo $product['image']; ?>" id="upload" style="height:150px; width: 100%;">
                                     </div><label><b>Choose Cover photo</b></label></p>
                                     <p><div class="input-group mb-3 " style="width: 150%;">
 
