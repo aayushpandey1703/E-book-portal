@@ -19,7 +19,12 @@ $result4=mysqli_query($con,$sql2);
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-   
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
          <!-- Latest compiled and minified CSS -->
@@ -36,6 +41,10 @@ $result4=mysqli_query($con,$sql2);
 
     </head>
     <style>
+        #rate {
+            height: 20px;
+            float:left;
+        }
   * {
   margin: 0;
   padding: 0;
@@ -47,6 +56,8 @@ body {
   background: white;
 }
 .navbar {
+   
+    width: 100%;
   display: flex;
   align-items: center;
   padding: 20px;
@@ -56,10 +67,12 @@ nav {
   text-align: right;
 }
 nav ul {
+    text-decoration: none;
   display: inline-block;
   list-style-type: none;
 }
 nav ul li {
+    text-decoration: none;
   display: inline-block;
   margin-right: 20px;
 }
@@ -533,13 +546,45 @@ form a {
         }
     </style>
     <body>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+              <label for="message-text" class="col-form-label">Rate:</label>
+              <input type="radio" name="rate" id="rate" value="5" /><p style="position:absolute;margin-left:52%;margin-top:2%;"><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i></p>
+              <input type="radio" name="rate" id="rate" value="4" /><p style="position:absolute;margin-left:52%;margin-top:10%;"><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i></p>
+              <input type="radio" name="rate" id="rate" value="3" /><p style="position:absolute;margin-left:52%;margin-top:18%;"><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i></p>
+              <input type="radio" name="rate" id="rate" value="2" /><p style="position:absolute;margin-left:52%;margin-top:26%;"><i class="fa fa-star" ></i><i class="fa fa-star" ></i></p>
+              <input type="radio" name="rate" id="rate" value="1" /><p style="position:absolute;margin-left:52%;margin-top:34%;"><i class="fa fa-star" ></i></p>
+          </div>
+          <div class="form-group">
+            <label for="message-text"  class="col-form-label">Comment:</label>
+            <textarea class="form-control" rows="5" id="description"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" id="des" class="btn btn-primary" data-dismiss="modal">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
         <?php 
          $query2="select*from login where id='".$_SESSION['id']."'";
         $result2=  mysqli_query($con, $query2);
         $account=mysqli_fetch_assoc($result2);
         ?>
     <div class="container">
-      <div class="navbar">
+      <div class="navbar" >
         <div class="logo">
           <img src="images/lg2.png" width="205px" />
         </div>
@@ -595,15 +640,16 @@ form a {
             <img src="images/<?php echo $book['image']; ?>" alt="" />
         </div>
            <a href="pdf/<?php echo $book['link']; ?>" download><button class="btn download" style="margin-left: 43%;">Download</button></a>    
-          <div class="col-2" style="margin-left: -15%; width: 120%;" >
+          <div class="col-2" style="margin-left: -15%; width: 1220%;" >
         
            
             <h3 style="margin-bottom: 2%;">Author: <label style="color:#333333; font-family: serif; margin-left: 1%;"><?php echo $book['author']; ?></label></h3> 
             <h3 style="margin-bottom: 2%;">Class: <label style="color:#333333; font-family: serif; margin-left: 1%;"><?php echo $book['class']; ?></label></h3> 
-          <h3>Product Details<i class="fa fa-indent"></i></h3>
+          <h3 style="margin-top:15%;">Product Details<i class="fa fa-indent"></i></h3>
           <br />
-          <p>
+          <p style="width:500%;">
           <?php echo $book['description']; ?>
+              </p>
         </div>
     
                 <?php
@@ -626,7 +672,8 @@ form a {
                 src="images/<?php echo $product['image']; ?>"
             alt=""
           />
-          <h4><?php echo $product['bname']; ?></h4>
+          <h5><?php echo $product['bname']; ?></h5>
+              <h5 style="font-size:15px"><?php echo $product['author']; ?></h5>
           <div class="rating">
               <?php for($i=0;$i<$rate;$i++){ 
                   ?>
@@ -636,6 +683,7 @@ form a {
               <?php } ?>
             
           </div>
+
           
           <div class="butn">
               <form action="description.php" method="post">
@@ -661,14 +709,16 @@ form a {
     </div>
     <div  style="margin-left: 2%; margin-top: 2%; margin-bottom: 50px; width: 95%; height: 1px; background: #cccccc"></div>
       <?php
-                 $sql="select*from books where bid='".$_SESSION['bid']."'";
+                 $sql="SELECT count(*) as num,books.rate from review
+INNER JOIN books on books.bid=review.bid
+WHERE books.bid='".$_SESSION['bid']."'";
                  $exe=mysqli_query($con,$sql);
                  $data=mysqli_fetch_assoc($exe);
                  $rate=(int)$data['rate'];
                  ?>
         <div class="avg" style="margin-left: 5%; width: 100%;">
-                 <h3 style="margin-bottom:7%;font-size: 30px;font-family:serif;position:absolute">Customer Review</h3>
-                 <div class="rating" style="margin-bottom: 20%;position: absolute; margin-top: 3%; ">
+                 <h3 class="title" style="margin-bottom:7%;font-size: 30px;font-family:serif;position:absolute">Customer Review</h3>
+                 <div class="rating" style="margin-bottom: 20%;position: absolute; margin-top: 6%; ">
                      <?php for($i=0;$i<$rate;$i++)
                      {
                      ?>
@@ -676,7 +726,7 @@ form a {
                      <?php
                      }
                      ?>
-                     <h3 style="float:right; font-family: serif; font-size: 30px; color:orange; margin-right: -15%;"><?php echo $data['rate'] ?>/5</h3>
+                     <h3 style="float:right; font-family: serif; font-size: 20px; color:black; margin-right: -7%;"><?php echo $data['num'] ?> reviews</h3>
                  </div>
         </div>
              <div class="review" id="rev"  style="position:absolute;margin-left: 7%;">
@@ -689,13 +739,12 @@ form a {
                  ?>
                
 
-                 <h3 style="margin-top: 40%; color: black; font-size: 20px; font-family: serif">Write a Review</h3>
+              
                  <input type="hidden" name="id" id="id" value="<?php echo $_SESSION['id']; ?>"/>
                  <input type="hidden" name="bid" id="bid" value="<?php echo $_SESSION['bid']; ?>" />
-                 <h4>   <input type="number" name="rate" id="rate" max="5" min="0" style="width: 40px; margin-top: 10px; height: 30px" value="0"/>/5</h4>
-                 <textarea name="description" rows="10" cols="35" id="description" value="Write a Review" style="outline: none; margin-top: 10px; color: black; border-radius: 10px; text-align: left;border-color: black;font-family:serif; font-size: 20px;" placeholder="write a review">
-               </textarea>
-                 <p><button type="submit" class="btn download" name="des"  id="des" style="margin-top:4%; width: 100%; height: 30px; border: none;"/>Post my review</button></p>
+                
+                 <p><button type="submit" style="margin-top: 80%;width: 130%;margin-left:-20%;background:#DF013A;border:none;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Write a Review</button>
+</p>
              <?php
              }
              ?>
@@ -801,7 +850,7 @@ WHERE review.bid='".$_SESSION['bid']."' order by date desc";
                     e.preventDefault();
                     var id = $('#id').val();
                     var bid = $('#bid').val();
-                    var rate = $('#rate').val();
+                    var rate = $('input:radio[name=rate]:checked').val();
                     var description = $('#description').val();
                    
                     $.ajax({
@@ -824,6 +873,17 @@ WHERE review.bid='".$_SESSION['bid']."' order by date desc";
                 
             });
            
+        </script>
+        <script>
+            $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
         </script>
     </body>
 </html>
