@@ -102,25 +102,25 @@ $_SESSION['dash']="admin";
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="all_books.php">
                                     <img src="https://img.icons8.com/material/64/000000/books--v1.png" style="height: 20px"/><span data-feather="file">  All Books</span>
 
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="all_books.php">
                                     <img src="https://img.icons8.com/ios-filled/50/000000/user-typing-using-typewriter.png" style="height: 20px;"/>  <span >Authors</span>
 
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="all_books.php">
                                     <img src="https://img.icons8.com/ios-glyphs/30/000000/poll-topic.png" style="height:20px    "/> <span data-feather="users"> Popular Books</span>
 
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="all_books.php">
                                     <img src="https://img.icons8.com/ios-glyphs/30/000000/time-machine--v1.png" style="height:20px;"/><span data-feather="bar-chart-2">  Recent </span>
 
                                 </a>
@@ -137,7 +137,7 @@ $_SESSION['dash']="admin";
                             </h6>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="add.php">
                                         <img src="https://img.icons8.com/ios-glyphs/30/000000/add-book.png" style="height: 20px; margin-right: 10px;"/>  <span data-feather="file-text"> Add Book</span>
 
                                     </a>

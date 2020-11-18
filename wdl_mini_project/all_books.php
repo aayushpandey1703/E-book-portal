@@ -80,7 +80,7 @@ $_SESSION['dash']="admin";
             box-shadow: 0 10px 10px;
         }
         #general{
-            margin-left: 80%;
+            margin-left: 60%;
         }
         table{
             width: 100%;
@@ -178,7 +178,7 @@ $_SESSION['dash']="admin";
                             </h6>
                             <ul class="nav flex-column mb-2">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="add.php">
                                         <img src="https://img.icons8.com/ios-glyphs/30/000000/add-book.png" style="height: 20px; margin-right: 10px;"/>  <span data-feather="file-text"> Add Book</span>
 
                                     </a>
@@ -221,12 +221,12 @@ INNER join admin on admin_book.aid=admin.aid";
                      <div class="filter">
                      <h7 style="color: #999999;" id='h7'>Total <?php echo $count['number']; ?>  books found</h7>
                      <select name="general" id="general">
-                         <option hidden value="*">--sort by--</option>
+                         <option hidden value="*">--sort by Time--</option>
                          <option value="date">Newly Added</option>
                          <option value="rate">Most Popular</option>
                      </select>
                      <select name="class" id="class">
-                         <option value="*" hidden>--sort by--</option>
+                         <option value="*" hidden>--sort by Class--</option>
                          <option value="class 9">Class 9</option>
                          <option value="class 10">Class 10</option>
                           <option value="class 11">Class 11</option>

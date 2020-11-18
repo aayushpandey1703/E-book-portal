@@ -593,9 +593,7 @@ form a {
             <li>
               <a href="Home.php">Home</a>
             </li>
-            <li><a href="">Books</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
+           
              <?php
                             if(isset($_SESSION['id']))
                             {
@@ -726,7 +724,7 @@ WHERE books.bid='".$_SESSION['bid']."'";
                      <?php
                      }
                      ?>
-                     <h3 style="float:right; font-family: serif; font-size: 20px; color:black; margin-right: -7%;"><?php echo $data['num'] ?> reviews</h3>
+                     <h3 style="float:right; font-family: serif; font-size: 20px; color:black; margin-right: -7%;"><input type="text" name="num_reviews" id="rnum" value="<?php echo $data['num'] ?>" style="width:10px;border:none;"/> reviews</h3>
                  </div>
         </div>
              <div class="review" id="rev"  style="position:absolute;margin-left: 7%;">
@@ -848,6 +846,10 @@ WHERE review.bid='".$_SESSION['bid']."' order by date desc";
             $(document).ready(function () {
                 $('#des').click(function (e) {
                     e.preventDefault();
+                    var a = parseInt($('#rnum').val());
+                    a = a + 1;
+                    var b = a.toString();
+                    $('#rnum').val(b);
                     var id = $('#id').val();
                     var bid = $('#bid').val();
                     var rate = $('input:radio[name=rate]:checked').val();
