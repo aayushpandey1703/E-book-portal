@@ -3,15 +3,15 @@ This is a E-book website wherein users can borwse their academice books as well 
 
 # Technologies used
 frontend:<br />
-          1.HTML
-          2.CSS
-          3.JavaScript
-          4.Bootstrap
-          \n
-backend:
-          1.PHP
-          2.jquery
-          3.Ajax
-database: 
-          1. MySQL
+          1.HTML<br />
+          2.CSS<br />
+          3.JavaScript<br />
+          4.Bootstrap<br />
+          
+backend:<br />
+          1.PHP<br />
+          2.jquery<br />
+          3.Ajax<br />
+database: <br />
+          1. MySQL<br />
 
